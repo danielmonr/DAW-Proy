@@ -1,0 +1,33 @@
+<%= form_for(@operacion) do |f| %>
+  <% if @operacion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@operacion.errors.count, "error") %> prohibited this operacion from being saved:</h2>
+
+      <ul>
+      <% @operacion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id_cuentasalida %><br>
+    <%= f.text_field :id_cuentasalida %>
+  </div>
+  <div class="field">
+    <%= f.label :id_cuentarecibe %><br>
+    <%= f.text_field :id_cuentarecibe %>
+  </div>
+  <div class="field">
+    <%= f.label :cantidad %><br>
+    <%= f.text_field :cantidad %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha %><br>
+    <%= f.date_select :fecha %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

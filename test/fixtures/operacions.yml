@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_cuentasalida: 
+  id_cuentarecibe: 
+  cantidad: 
+  fecha: 2016-12-02
+
+two:
+  id_cuentasalida: 
+  id_cuentarecibe: 
+  cantidad: 
+  fecha: 2016-12-02

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id cuentasalida:</strong>
+  <%= @operacion.id_cuentasalida %>
+</p>
+
+<p>
+  <strong>Id cuentarecibe:</strong>
+  <%= @operacion.id_cuentarecibe %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @operacion.cantidad %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @operacion.fecha %>
+</p>
+
+<%= link_to 'Edit', edit_operacion_path(@operacion) %> |
+<%= link_to 'Back', operacions_path %>

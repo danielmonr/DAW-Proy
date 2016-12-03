@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id cliente:</strong>
+  <%= @ventum.id_cliente %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @ventum.cantidad %>
+</p>
+
+<p>
+  <strong>Clabe:</strong>
+  <%= @ventum.clabe %>
+</p>
+
+<%= link_to 'Edit', edit_ventum_path(@ventum) %> |
+<%= link_to 'Back', venta_path %>

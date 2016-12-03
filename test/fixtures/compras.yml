@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_cliente: 
+  cantidad: 
+  tarjeta: MyString
+  tipo: MyString
+
+two:
+  id_cliente: 
+  cantidad: 
+  tarjeta: MyString
+  tipo: MyString
