@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :operacions
   resources :cuenta
   resources :clientes
+  resources :main_page
 
 
   get 'login' => 'sessions#new'

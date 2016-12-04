@@ -72,4 +72,10 @@ class EmpresasController < ApplicationController
     def empresa_params
       params.require(:empresa).permit(:nombre, :direccion, :telefono, :password)
     end
+
+    def logged
+      unless user_logged_in?
+        redirect_to root_url
+      end
+    end
 end
