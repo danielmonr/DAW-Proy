@@ -42,7 +42,7 @@
                 <td><%= cuentum.descripcion %></td>
                 <td><%= cuentum.saldo %></td>
                 <td><%= cuentum.id_usuario %></td>
-                <td><%= button_to 'Depositar', new_compra_path,:method => :get, params: { cuentaid: cuentum.id } ,:style => "width:100%;" %></td>
+                <td><%= button_to 'Depositar', new_compra_path(cuentum.id), :style => "width:100%;" %></td>
                 <td><%= button_to 'Transferir', new_operacion_path,:method => :get, params: { cuentaid: cuentum.id } ,:style => "width:100%;" %></td>
                 <td><%= button_to 'Vender', new_ventum_path,:method => :get, params: { cuentaid: cuentum.id } ,:style => "width:100%;" %></td>
                 <td><%= link_to 'Destroy', cuentum, method: :delete, data: { confirm: 'Are you sure?' } %></td>

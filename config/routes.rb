@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :clientes
   # resources :main_page
 
+  get '/compras/new/:cuentaid', to: 'compras#new'
+
   get 'main' => 'main_page#index'
 
   get 'login' => 'sessions#new'

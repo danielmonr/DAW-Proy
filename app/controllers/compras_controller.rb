@@ -1,5 +1,6 @@
 class ComprasController < ApplicationController
   before_action :logged
+  before_action :set_cuentaid, only: [:create, :new]
   before_action :set_compra, only: [:show, :edit, :update, :destroy]
 
   # GET /compras
@@ -26,7 +27,7 @@ class ComprasController < ApplicationController
   # POST /compras.json
   def create
     @compra = Compra.new(compra_params)
-
+    @compra.id_cliente = params[:cuentaid]
     respond_to do |format|
       if @compra.save
         format.html { redirect_to @compra, notice: 'Compra was successfully created.' }
@@ -64,6 +65,9 @@ class ComprasController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_cuentaid
+        @cuenta_id = params[:cuentaid]
+    end
     def set_compra
       @compra = Compra.find(params[:id])
     end
