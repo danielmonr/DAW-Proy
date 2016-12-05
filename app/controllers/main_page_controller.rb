@@ -1,14 +1,19 @@
 class MainPageController < ApplicationController
     before_action :logged
-    before_action :set_cuentum, only: [:show]
+    before_action :set_cuentum, only: [:show, :index]
 
     def show
+
+    end
+
+    def index
     end
 
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_cuentum
-        @cuentum = Cuentum.find(params[:id])
+        @cliente = current_user        
+        @q = Cuentum.where(id_usuario: @cliente.id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :operacions
   resources :cuenta
   resources :clientes
-  resources :main_page
+  # resources :main_page
 
+  get 'main' => 'main_page#index'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

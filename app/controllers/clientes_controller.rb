@@ -1,6 +1,6 @@
 class ClientesController < ApplicationController
-  before_action :logged
-  before_action :set_cliente, only: [:show, :edit, :update, :destroy]
+    before_action :logged, only: [:show, :edit, :update, :destroy, :index]
+    before_action :set_cliente, only: [:show, :edit, :update, :destroy]
 
   # GET /clientes
   # GET /clientes.json

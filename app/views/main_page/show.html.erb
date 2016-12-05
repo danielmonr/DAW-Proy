@@ -18,23 +18,33 @@
     <div class="container">
         <h1 class="display-3">Hello, world!</h1>
         <p id="notice"><%= notice %></p>
+        <h1>Listing Cuenta</h1>
 
-        <p>
-          <strong>Descripcion:</strong>
-          <%= @cuentum.descripcion %>
-        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Descripcion</th>
+              <th>Saldo</th>
+              <th>Id usuario</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
 
-        <p>
-          <strong>Saldo:</strong>
-          <%= @cuentum.saldo %>
-        </p>
+          <tbody>
+            <% @cuenta.each do |cuentum| %>
+              <tr>
+                <td><%= cuentum.descripcion %></td>
+                <td><%= cuentum.saldo %></td>
+                <td><%= cuentum.id_usuario %></td>
+                <td><%= link_to 'Show', cuentum %></td>
+                <td><%= link_to 'Edit', edit_cuentum_path(cuentum) %></td>
+                <td><%= link_to 'Destroy', cuentum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
 
-        <p>
-          <strong>Id usuario:</strong>
-          <%= @cuentum.id_usuario %>
-        </p>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        <%= link_to 'New Cuentum', new_cuentum_path %>
     </div>
 </div>
 

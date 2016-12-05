@@ -1,23 +1,77 @@
-<p id="notice"><%= notice %></p>
+<nav class="navbar navbar-static-top navbar-dark bg-inverse">
+    <a class="navbar-brand" href="#">Project name</a>
+    <ul class="nav navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
 
-<h1>Pagina principal</h1>
+            <a class="nav-link" href="#">Contact</a>
+        </li>
+        <li class="nav-item">
+            <%= link_to "Cerrar sesión", logout_path, method: "delete" %>
+        </li>
+    </ul>
+</nav>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Direccion</th>
-      <th>Telefono</th>
-      <th>Password</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-3">Hello, <p><%= @cliente.nombre %></p>!</h1>
+        <p id="notice"><%= notice %></p>
+        <h1>Listing Cuenta</h1>
 
-  <tbody>
-      <h1>Pagina principal</h1>
-  </tbody>
-</table>
+        <table>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Descripcion</th>
+              <th>Saldo</th>
+              <th>id Usuario</th>
+              <th colspan="4"></th>
+            </tr>
+          </thead>
 
-<br>
+          <tbody>
+            <% @q.each do |cuentum| %>
+              <tr>
+                <td><%= cuentum.id %></td>
+                <td><%= cuentum.descripcion %></td>
+                <td><%= cuentum.saldo %></td>
+                <td><%= cuentum.id_usuario %></td>
+                <td><%= button_to 'Depositar', new_compra_path,:method => :get, params: { cuentaid: cuentum.id } ,:style => "width:100%;" %></td>
+                <td><%= button_to 'Transferir', new_operacion_path,:method => :get, params: { cuentaid: cuentum.id } ,:style => "width:100%;" %></td>
+                <td><%= button_to 'Vender', new_ventum_path,:method => :get, params: { cuentaid: cuentum.id } ,:style => "width:100%;" %></td>
+                <td><%= link_to 'Destroy', cuentum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
 
-<%= link_to 'New Empresa', new_empresa_path %>
+        <%= link_to 'New Cuentum', new_cuentum_path %>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-4">
+            <%= button_to 'Depositar', new_compra_path,:method => :get ,:style => "width:100%;height:500px;" %>
+        </div>
+        <div class="col-md-4">
+            <%= button_to 'Transferir', new_compra_path,:method => :get ,:style => "width:100%;height:500px;" %>
+        </div>
+        <div class="col-md-4">
+            <%= button_to 'Vender', new_ventum_path,:method => :get ,:style => "width:100%;height:500px;" %>
+        </div>
+    </div>
+
+    <hr>
+
+    <footer>
+        <p>&copy; Company 2016</p>
+    </footer>
+</div> <!-- /container -->

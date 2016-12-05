@@ -1,4 +1,5 @@
 class CuentaController < ApplicationController
+  include CuentaHelper
   before_action :logged
   before_action :set_cuentum, only: [:show, :edit, :update, :destroy]
 
@@ -25,11 +26,13 @@ class CuentaController < ApplicationController
   # POST /cuenta
   # POST /cuenta.json
   def create
+    @cliente = current_user
     @cuentum = Cuentum.new(cuentum_params)
-
+    @cuentum.saldo = 0
+    @cuentum.id_usuario = @cliente.id
     respond_to do |format|
       if @cuentum.save
-        format.html { redirect_to @cuentum, notice: 'Cuentum was successfully created.' }
+        format.html { redirect_to controller: 'main_page', action: 'index' and return }
         format.json { render :show, status: :created, location: @cuentum }
       else
         format.html { render :new }
@@ -57,7 +60,7 @@ class CuentaController < ApplicationController
   def destroy
     @cuentum.destroy
     respond_to do |format|
-      format.html { redirect_to cuenta_url, notice: 'Cuentum was successfully destroyed.' }
+      format.html { redirect_to main_path, notice: 'Cuentum was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
